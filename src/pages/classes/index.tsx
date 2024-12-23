@@ -1,12 +1,10 @@
 import React from "react";
 import {
   Container,
-  Stack,
-  Typography,
   Grid2 as Grid,
 } from "@mui/material";
 import DashboardHeader from "../../components/dashboard-header";
-import SearchInput from "../../components/search-input";
+import HeaderSection from "../../components/header-section";
 import ClassTab from "../../components/class-tab";
 
 const ClassesPage: React.FC = () => (
@@ -15,27 +13,9 @@ const ClassesPage: React.FC = () => (
       title="Classes"
       subtitle="Manage and organize your generations"
       buttonText="Create Generation"
-      onButtonClick={() => console.log("Add class clicked")}
+      onButtonClick={() => console.log("Create Generation")}
     />
-    <Stack
-      py={5}
-      useFlexGap
-      direction={"row"}
-      alignItems={"end"}
-      spacing={1}
-      justifyContent={"space-between"}
-    >
-      <Grid >
-        <Typography variant="subtitle1" fontWeight={600}>
-          Batches Details
-        </Typography>
-      </Grid>
-
-      <Grid >
-        <SearchInput />
-      </Grid>
-    </Stack>
-
+      <HeaderSection title="Batches Details" />
     <Grid >
       <ClassTab />
     </Grid>

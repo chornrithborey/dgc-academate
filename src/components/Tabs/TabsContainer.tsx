@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { Tabs, Box, Tab } from "@mui/material";
 import TabPanel from "./TabPanel";
 
-function getTabProps(index: number) {
-  return { id: `tab-${index}`, "aria-controls": `tabpanel-${index}` };
-}
-
 export const TabsContainer: React.FC<{
   tabLabels: string[];
   children: React.ReactNode | React.ReactNode[];

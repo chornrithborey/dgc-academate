@@ -5,7 +5,9 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Box,
 } from "@mui/material";
+import { Logout as LogoutIcon } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import { routes } from "../routes";
@@ -57,38 +59,63 @@ const Sidebar: React.FC<{ open: boolean }> = ({ open }) => {
         <img width={100} height={100} src="/assets/logo.svg" alt="Logo" />
       </DrawerHeader>
 
-      <List>
-        {routes.map((route) => (
-          <ListItem key={route.path}>
-            <ListItemButton
-              onClick={() => handleRoute(route.path)}
-              sx={{
-                borderRadius: "4px",
-                backgroundColor: isActive(route.path) ? "#E6F6FC" : "inherit",
-                "&:hover": {
-                  backgroundColor: isActive(route.path) ? "#E6F6FC" : "inherit",
-                },
-                color: isActive(route.path) ? "primary.main" : "inherit",
-              }}
-            >
-              <ListItemIcon
+      <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+        <List sx={{ flexGrow: 1 }}>
+          {routes.map((route) => (
+            <ListItem key={route.path}>
+              <ListItemButton
+                onClick={() => handleRoute(route.path)}
                 sx={{
+                  borderRadius: "4px",
+                  backgroundColor: isActive(route.path) ? "#E6F6FC" : "inherit",
+                  "&:hover": {
+                    backgroundColor: isActive(route.path) ? "#E6F6FC" : "inherit",
+                  },
                   color: isActive(route.path) ? "primary.main" : "inherit",
                 }}
               >
-                {route.icon}
+                <ListItemIcon
+                  sx={{
+                    color: isActive(route.path) ? "primary.main" : "inherit",
+                  }}
+                >
+                  {route.icon}
+                </ListItemIcon>
+                <ListItemText
+                  sx={{
+                    fontWeight: isActive(route.path) ? 700 : 400,
+                    color: isActive(route.path) ? "primary.main" : "inherit",
+                  }}
+                  primary={route.label}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <List>
+          <ListItem>
+            <ListItemButton
+              sx={{
+                borderRadius: "4px",
+              }}
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              <ListItemIcon>
+                <LogoutIcon />
               </ListItemIcon>
               <ListItemText
                 sx={{
-                  fontWeight: isActive(route.path) ? 700 : 400,
-                  color: isActive(route.path) ? "primary.main" : "inherit",
+                  fontWeight: 400,
+                  color: "inherit",
                 }}
-                primary={route.label}
+                primary="Logout"
               />
             </ListItemButton>
           </ListItem>
-        ))}
-      </List>
+        </List>
+      </Box>
     </Drawer>
   );
 };

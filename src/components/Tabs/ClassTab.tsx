@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Tabs, Tab, Grid2 as Grid } from "@mui/material";
 import ClassTabPanel from "./ClassTabPanel";
-import BatchCardList from "./BatchCardList";
-import CourseCard from "./CourseCard";
+import BatchCardList from "../Cards/BatchCardList";
+import CourseCard from "../Cards/CourseCard";
 
 function a11yProps(index: number) {
   return {

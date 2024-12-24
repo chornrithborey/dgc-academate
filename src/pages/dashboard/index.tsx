@@ -3,8 +3,8 @@ import { Container, Grid2 as Grid, Paper } from "@mui/material";
 import DashboardHeader from "../../components/DashboardHeader";
 import DashboardCard from "../../components/DashboardCard";
 import EventCalendar from "../../components/EventContainer";
-import ClassroomList from "../../components/ClassroomList";
-import StudentDataTable from "../../components/StudentDataTable";
+import ClassroomList from "../../components/Cards/ClassroomList";
+import StudentDataTable from "../../components/Tables/StudentDataTable";
 
 const handleButtonClick = () => {
   console.log("Button clicked");

@@ -6,7 +6,7 @@ import {
   Button,
   Avatar,
 } from "@mui/material";
-import SearchInput from "../components/SearchInput";
+import SearchInput from "./Input/SearchInput";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 interface BatchesDetailsProps {

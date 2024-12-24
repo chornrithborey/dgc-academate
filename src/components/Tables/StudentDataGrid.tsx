@@ -8,9 +8,8 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { StudentRow, Column, StudentDataGridProps } from "../types/student";
+import { StudentRow, StudentDataGridProps } from "../../types/student";
 import PaginationControls from "./PaginationControls";
-import ActionButtons from "./ActionButtons";
 
 const StudentDataGrid: React.FC<StudentDataGridProps> = ({
   rows,

@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid2 as Grid } from "@mui/material";
 import DashboardHeader from "../../components/DashboardHeader";
 import HeaderSection from "../../components/HeaderSection";
-import ClassTab from "../../components/ClassTab";
+import ClassTab from "../../components/Tabs/ClassTab";
 
 const ClassesPage: React.FC = () => (
   <Container sx={{ py: 3 }}>

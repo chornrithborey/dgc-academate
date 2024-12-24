@@ -29,7 +29,8 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
       </Typography>
     </div>
 
-    <Button
+    {showButton && (
+      <Button
       size="large"
       variant="contained"
       disableElevation
@@ -37,9 +38,10 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
       startIcon={<AddIcon />}
       onClick={onButtonClick}
       disabled={buttonDisabled}
-    >
-      {showButton ? buttonText : ""}
-    </Button>
+      >
+      {buttonText}
+      </Button>
+    )}
   </Stack>
 );
 

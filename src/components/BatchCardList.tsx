@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid2 as Grid } from "@mui/material";
-import BatchCard from "./batch-card";
+import BatchCard from "./BatchCard";
 
 const BatchCardList: React.FC = () => {
   const cards = [];

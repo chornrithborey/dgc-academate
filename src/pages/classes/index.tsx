@@ -1,11 +1,8 @@
 import React from "react";
-import {
-  Container,
-  Grid2 as Grid,
-} from "@mui/material";
-import DashboardHeader from "../../components/dashboard-header";
-import HeaderSection from "../../components/header-section";
-import ClassTab from "../../components/class-tab";
+import { Container, Grid2 as Grid } from "@mui/material";
+import DashboardHeader from "../../components/DashboardHeader";
+import HeaderSection from "../../components/HeaderSection";
+import ClassTab from "../../components/ClassTab";
 
 const ClassesPage: React.FC = () => (
   <Container sx={{ py: 3 }}>
@@ -15,8 +12,8 @@ const ClassesPage: React.FC = () => (
       buttonText="Create Generation"
       onButtonClick={() => console.log("Create Generation")}
     />
-      <HeaderSection title="Batches Details" />
-    <Grid >
+    <HeaderSection title="Batches Details" />
+    <Grid>
       <ClassTab />
     </Grid>
   </Container>

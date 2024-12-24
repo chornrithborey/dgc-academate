@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Tabs, Tab, Grid } from "@mui/material";
-import ClassTabPanel from "./class-tab-panel";
-import BatchCardList from "./batch-card-list";
-import CourseCard from "./course-card";
+import { Box, Tabs, Tab, Grid2 as Grid } from "@mui/material";
+import ClassTabPanel from "./ClassTabPanel";
+import BatchCardList from "./BatchCardList";
+import CourseCard from "./CourseCard";
 
 function a11yProps(index: number) {
   return {
@@ -42,7 +42,7 @@ const ClassTab: React.FC = () => {
       </ClassTabPanel>
       <ClassTabPanel value={value} index={1}>
         <Grid container direction={"row"} spacing={2}>
-          <Grid item xs={4}>
+          <Grid size={4} >
             <CourseCard
               title="How to Make an Array and it’s Types in C++"
               classroom="Classroom : Kampong cham"
@@ -51,7 +51,7 @@ const ClassTab: React.FC = () => {
               status="Completed"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid size={4} >
             <CourseCard
               title="How to Make an Array and it’s Types in C++"
               classroom="Classroom : Phnom Penh"
@@ -60,7 +60,7 @@ const ClassTab: React.FC = () => {
               status="Not Yet"
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid size={4}>
             <CourseCard
               title="How to Make an Array and it’s Types in C++"
               classroom="Classroom : Siem Reap"

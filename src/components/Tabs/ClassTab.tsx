@@ -8,6 +8,7 @@ import {
 import ClassTabPanel from "./ClassTabPanel";
 import BatchCardList from "../Cards/BatchCardList";
 import CourseCard from "../Cards/CourseCard";
+import courses from "../../data/courses";
 
 const ClassTab: React.FC = () => {
   const [value, setValue] = useState(0);
@@ -37,7 +38,6 @@ const ClassTab: React.FC = () => {
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
         >
           <Tab label="Batches" {...getTabIndex(0)} />
           <Tab label="Classes" {...getTabIndex(1)} />
@@ -48,38 +48,22 @@ const ClassTab: React.FC = () => {
       </ClassTabPanel>
       <ClassTabPanel value={value} index={1}>
         <Grid container direction={"row"} spacing={2}>
-          <Grid size={4}>
-            <CourseCard
-              title="How to Make an Array and it’s Types in C++"
-              classroom="Classroom : Kampong cham"
-              time="10:00 AM"
-              date="03 Jan 2023"
-              status="Completed"
-             
-            />
-          </Grid>
-          <Grid size={4}>
-            <CourseCard
-              title="How to Make an Array and it’s Types in C++"
-              classroom="Classroom : Phnom Penh"
-              time="10:00 AM"
-              date="03 Jan 2023"
-              status="Not Yet"
-       
-            />
-          </Grid>
-          <Grid size={4}>
-            <CourseCard
-              title="How to Make an Array and it’s Types in C++"
-              classroom="Classroom : Siem Reap"
-              time="10:00 AM"
-              date="03 Jan 2023"
-              status="Not Yet"
-            />
-          </Grid>
+          {courses.map((course, index) => (
+            <Grid key={index} size={4}>
+              <CourseCard
+                title={course.title}
+                classroom={course.classroom}
+                time={course.time}
+                date={course.date}
+                status={
+                  course.status === "Not Yet" ? "Not Yet" : "Completed"
+                }
+              />
+            </Grid>
+          ))}
         </Grid>
       </ClassTabPanel>
-     
+
     </Box>
   );
 };

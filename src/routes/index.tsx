@@ -3,7 +3,9 @@ import ClassesPage from '../pages/classes';
 import StudentPage from '../pages/students';
 import AttendancePage from '../pages/attendance';
 import ScorePage from '../pages/score';
-import { Dashboard, ClassOutlined, School, BarChart } from '@mui/icons-material';
+import SettingPage from '../pages/setting';
+import { Dashboard, ClassOutlined, School, BarChart, CreditScore,CalendarToday, Settings  } from '@mui/icons-material';
+import CalendarPage from '../pages/calendar';
 
 
 export const routes = [
@@ -11,9 +13,9 @@ export const routes = [
   { label: 'Classes', path: '/classes', element: <ClassesPage />, icon: <ClassOutlined /> },  
   { label: 'Students', path: '/students', element: <StudentPage />, icon: <School /> },
   { label: 'Attendance', path: '/attendances', element: <AttendancePage />, icon: <BarChart /> },
-  { label: 'Score', path: '/scores', element: <ScorePage />, icon: <BarChart /> },
-  { label: 'Calendar', path: '/calendars', element: <AttendancePage />, icon: <BarChart /> },
-  { label: 'Setting', path: '/setting', element: <AttendancePage />, icon: <BarChart /> },
+  { label: 'Score', path: '/scores', element: <ScorePage />, icon: <CreditScore /> },
+  { label: 'Calendar', path: '/calendars', element: <CalendarPage />, icon: <CalendarToday /> },
+  { label: 'Setting', path: '/setting', element: <SettingPage />, icon: <Settings /> },
   
 ];
 

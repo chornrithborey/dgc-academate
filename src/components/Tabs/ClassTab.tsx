@@ -23,7 +23,6 @@ const ClassTab: React.FC = () => {
       <Box
         sx={{
           borderBottom: 1,
-          borderColor: "#C8E4FA",
           p: 0,
           m: 0,
         }}

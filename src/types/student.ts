@@ -7,6 +7,7 @@ export interface StudentRow {
     age: number | null;
     classroom?: number;
     attendance?: string;
+    score?: string;
   }
   
   export interface Column extends Omit<GridColDef, 'field' | 'headerName' | 'width'> {

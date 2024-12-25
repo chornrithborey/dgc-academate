@@ -22,6 +22,7 @@ export const generateMockData = (numRows: number): StudentRow[] => {
       dateOfBirth: formatDate(new Date().toISOString()),
       attendance:
         attendanceStatuses[Math.floor(Math.random() * attendanceStatuses.length)],
+        score: '0',
     }));
   };
 

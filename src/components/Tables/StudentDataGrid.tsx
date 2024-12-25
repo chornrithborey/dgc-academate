@@ -60,7 +60,11 @@ const StudentDataGrid: React.FC<StudentDataGridProps> = ({
               >
                 {columns.map((column) => (
                   <TableCell key={column.field} align="left">
-                    {row[column.field as keyof StudentRow]}
+                    {column.renderCell
+                      ? column.renderCell(
+                          { row } as any
+                      )
+                      : row[column.field as keyof StudentRow]}
                   </TableCell>
                 ))}
                 {actionButtons && (

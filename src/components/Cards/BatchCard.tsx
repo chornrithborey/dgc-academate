@@ -1,7 +1,17 @@
 import React from "react";
 import { Paper, Typography, Button } from "@mui/material";
 
-const BatchCard: React.FC = () => (
+interface BatchCardProps {
+  title?: string;
+  subtitle?: string;
+  onButtonClick?: () => void;
+}
+
+const BatchCard: React.FC<BatchCardProps> = ({
+  title = "12th Generation",
+  subtitle = "Course: B.Tech Specialization in Health Informatics",
+  onButtonClick,
+}) => (
   <Paper
     elevation={0}
     sx={{
@@ -16,10 +26,10 @@ const BatchCard: React.FC = () => (
     }}
   >
     <Typography variant="h6" fontWeight={600} gutterBottom>
-      12th Generation
+      {title}
     </Typography>
     <Typography variant="subtitle1" color="#919499" gutterBottom>
-      Course: B.Tech Specialization in Health Informatics
+      {subtitle}
     </Typography>
     <Button
       sx={{ mt: 2 }}
@@ -27,6 +37,7 @@ const BatchCard: React.FC = () => (
       fullWidth
       disableElevation
       color="primary"
+      onClick={onButtonClick}
     >
       View Details
     </Button>

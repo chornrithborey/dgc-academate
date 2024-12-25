@@ -19,6 +19,7 @@ interface CourseCardProps {
   time: string;
   date: string;
   status: "Completed" | "Not Yet";
+  onViewDetail?: () => void;
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({
@@ -27,6 +28,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
   time,
   date,
   status,
+  onViewDetail,
 }) => (
   <Card
     elevation={0}
@@ -87,7 +89,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
         pr: 0,
       }}
     >
-      <Button variant="contained" fullWidth disableElevation color="primary">
+      <Button 
+        onClick={onViewDetail}
+        variant="contained" fullWidth disableElevation color="primary">
         Attendance
       </Button>
     </CardActions>

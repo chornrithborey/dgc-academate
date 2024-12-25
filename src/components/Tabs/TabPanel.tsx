@@ -13,7 +13,7 @@ export const TabPanel: React.FC<{
     aria-labelledby={`tab-${index}`}
     {...other}
   >
-    {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    {value === index && <Box sx={{ py:2, m:0 }}>{children}</Box>}
   </div>
 );
 

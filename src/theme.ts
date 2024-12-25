@@ -101,5 +101,14 @@ export const theme = (backgroundColor: string = '#ffffff') =>
           },
         },
       },
+      MuiDialog: {
+        styleOverrides: {
+          paper: {
+            borderRadius: '0px',
+          
+          },
+          
+        },
+      },
     },
   });

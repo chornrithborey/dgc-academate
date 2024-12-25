@@ -16,7 +16,7 @@ const LoginPage: React.FC = () => {
   return (
     <Container
       sx={{
-        bgcolor: "#3BB2D9",
+        position: "relative",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -25,7 +25,17 @@ const LoginPage: React.FC = () => {
         padding: isSmallScreen ? "1rem" : "0",
       }}
     >
-      <Grid>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 1,
+        }}
+      />
+      <Grid sx={{ position: "relative", zIndex: 2 }}>
         <Box
           sx={{
             elevation: 0,
@@ -33,8 +43,8 @@ const LoginPage: React.FC = () => {
             borderRadius: "24px",
             py: isSmallScreen ? "1rem" : "2rem",
             px: isSmallScreen ? "1.5rem" : "3rem",
-            height: isSmallScreen ? "auto" : "70vh",
-            width: isSmallScreen ? "80vw" : theme.breakpoints.down("md") ? "60vw" : "50vw",
+            height: "auto",
+            width: isSmallScreen ? "90vw" : theme.breakpoints.down("md") ? "40vw" : "35vw",
           }}
         >
           <Avatar

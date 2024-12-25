@@ -15,7 +15,7 @@ const AuthLayout: React.FC<{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundColor: backgroundColor || "#3BB2D9"
+                bgcolor: "rgba(17, 17, 17, 0.35)",
             }}>
                 <CssBaseline />
                     {children}

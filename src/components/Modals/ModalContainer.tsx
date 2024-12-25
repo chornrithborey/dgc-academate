@@ -26,7 +26,11 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
       fullWidth
       open={isOpen}
       sx={{
-        height: "110%",
+        height: {
+          xs: "110vh",
+          md: "120vh",
+          sm: "120vh"
+        },
       }}
       onClose={onClose}
     >
@@ -36,7 +40,7 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
         }}
       >
         <IconButton
-          edge="start"
+
           color="inherit"
           onClick={onClose}
           aria-label="close"
@@ -44,7 +48,15 @@ const ModalContainer: React.FC<ModalContainerProps> = ({
           <CloseIcon />
         </IconButton>
       </DialogActions>
-      <DialogContent>{children}</DialogContent>
+      <DialogContent
+        sx={{
+          height: {
+            xs: "110vh",
+            md: "120vh",
+            sm: "120vh"
+          },
+        }}
+      >{children}</DialogContent>
     </Dialog>
   );
 };

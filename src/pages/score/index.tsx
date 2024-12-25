@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
   Chip,
   Container,
   Grid2 as Grid,
@@ -53,7 +52,7 @@ const StudentPage: React.FC = () => {
             variant="outlined"
             size="small"
           />
-          <Typography variant="subtitle2">/100</Typography>
+          <Typography variant="subtitle2">/50</Typography>
         </Stack>
       ),
     },

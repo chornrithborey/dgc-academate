@@ -4,11 +4,6 @@ import {
   Tabs,
   Tab,
   Grid2 as Grid,
-  Container,
-  Typography,
-  List,
-  ListItemText,
-  ListItem,
 } from "@mui/material";
 import ClassTabPanel from "./ClassTabPanel";
 import BatchCardList from "../Cards/BatchCardList";

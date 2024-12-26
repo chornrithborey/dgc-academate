@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Grid2 as Grid } from "@mui/material";
 import DashboardHeader  from "../../components/DashboardHeader";
 import HeaderSection from "../../components/HeaderSection";
@@ -21,7 +21,7 @@ const columns = [
 ];
 
 const StudentPage: React.FC = () => {
-  const [page, setPage] = React.useState(0);
+  const [page, setPage] = useState(0);
 
   const handleAction = (row: StudentRow, actionType: string) => {
     alert(`${actionType} clicked for row with id: ${row.id}`);

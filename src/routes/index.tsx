@@ -4,8 +4,8 @@ import StudentPage from '../pages/students';
 import AttendancePage from '../pages/attendance';
 import ScorePage from '../pages/score';
 import SettingPage from '../pages/setting';
-import { Dashboard, ClassOutlined, School, BarChart, CreditScore,CalendarToday, Settings  } from '@mui/icons-material';
 import CalendarPage from '../pages/calendar';
+import { Dashboard, ClassOutlined, School, BarChart, CreditScore,CalendarToday, Settings  } from '@mui/icons-material';
 
 
 export const routes = [

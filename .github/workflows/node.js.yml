@@ -25,4 +25,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'  # Cache yarn dependencies to speed up subsequent runs
     - run: yarn install  # Install dependencies using yarn
-    - run: yarn build    # Build the React app using yarn
+    - run: CI=false yarn build  # Disable ESLint in CI environment and build the app

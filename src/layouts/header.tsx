@@ -4,7 +4,6 @@ import {
   AppBar as MuiAppBar,
   Toolbar,
   IconButton,
-  Badge,
   Box,
   Typography,
   Stack,
@@ -13,9 +12,6 @@ import {
 import {
   KeyboardArrowDownOutlined as ArrowDownIcon,
   ArrowForwardIosOutlined as ArrowForwardIcon,
-  Notifications as NotificationsIcon,
-  AccountCircle,
-  MoreVert as MoreIcon,
 } from "@mui/icons-material";
 
 const drawerWidth = 240;

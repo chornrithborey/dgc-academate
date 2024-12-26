@@ -5,7 +5,7 @@ import AttendancePage from '../pages/attendance';
 import ScorePage from '../pages/score';
 import SettingPage from '../pages/setting';
 import CalendarPage from '../pages/calendar';
-import { Dashboard, ClassOutlined, School, BarChart, CreditScore, CalendarToday, SettingsOutlined } from '@mui/icons-material';
+import { SettingsOutlined } from '@mui/icons-material';
 import svgToIcon  from '../utils/svgToIcon';
 
 export const routes = [

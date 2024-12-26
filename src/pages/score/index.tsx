@@ -1,10 +1,10 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import {
-  Box,
   Button,
   Chip,
   Container,
   Grid2 as Grid,
+  Paper,
   Stack,
   TextField,
   Typography,
@@ -20,8 +20,9 @@ import { RemoveRedEyeOutlined as ViewIcon } from "@mui/icons-material";
 import ModalContainer from "../../components/Modals/ModalContainer";
 import ModalConfirmation from "../../components/Modals/ModalConfirmation";
 import StudentSimpleDataTable from "../../components/Tables/SimpleStudentDataTable";
-import { studnetAttendanceList } from "../../data/student";
-
+import { studentAttendanceList } from "../../data/student";
+import ModalContent from "../../components/Modals/ModalContent";
+import ModalConfirmationContent from "../../components/Modals/ModalConfirmationContent";
 
 const initialStudentData: StudentRow[] = generateMockData(50);
 const rowsPerPage = 5;
@@ -30,15 +31,21 @@ const ScorePage: React.FC = () => {
   const [page, setPage] = useState(0);
   const [openModal, setOpenModal] = useState(false);
   const [openConfimModal, setOpenConfirmModal] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
   const [studentData, setStudentData] = useState(initialStudentData);
 
   const closeModal = () => {
     setOpenModal(false);
-  }
+  };
 
   const handlePublishResult = () => {
+    setIsPublishing(true);
+    setOpenConfirmModal(false);
+  };
+
+  const handleConfirmModal = () => {
     setOpenConfirmModal(true);
-  }
+  };
 
   const handleScoreChange = (id: number, newScore: string) => {
     const validScore = Math.min(Math.max(parseInt(newScore, 10), 0), 100);
@@ -83,11 +90,19 @@ const ScorePage: React.FC = () => {
             sx={{
               borderRadius: 1,
               color:
-                params.row.attendance === "Present" ? "#3EDC4E" : params.row.attendance === "Absent" ? "#FF0000" : "#2C97EB",
+                params.row.attendance === "Present"
+                  ? "#3EDC4E"
+                  : params.row.attendance === "Absent"
+                  ? "#FF0000"
+                  : "#2C97EB",
             }}
             label={`${params.row.attendance}`}
             color={
-              params.row.attendance === "Present" ? "success" : params.row.attendance === "Absent" ? "error" : "info"
+              params.row.attendance === "Present"
+                ? "success"
+                : params.row.attendance === "Absent"
+                ? "error"
+                : "info"
             }
           />
         </Stack>
@@ -95,7 +110,7 @@ const ScorePage: React.FC = () => {
     },
   ];
 
-  const handleAction = (row: StudentRow, actionType: string) => {
+  const handleAction = (row: StudentRow) => {
     setOpenModal(true);
   };
 
@@ -172,73 +187,46 @@ const ScorePage: React.FC = () => {
           />
         </StudentTabs>
       </Grid>
-      <ModalContainer
-        isOpen={openModal}
-        onClose={() => closeModal()}
-        size="md"
-      >
-        <Stack
-          justifyContent={"space-between"}
-          direction="row" spacing={2}>
-          <Typography variant="h5">
-            Declare Result
-          </Typography>
-          <Button
-            onClick={handlePublishResult}
-            disableElevation variant="contained" color="primary">
-            Publish Result
-          </Button>
-        </Stack>
-        <Stack
-          justifyContent={"space-between"}
-          direction="row" spacing={2}>
-          <Typography variant="h6">
-            BHI Health Informatics mid semester Exam.
-          </Typography>
-        </Stack>
-        <Stack
-          my={3}
-          direction="row" >
-          <Button
-            sx={{
-              backgroundColor: "#EEEFF9",
-              color: "grey",
-              px: 5,
-            }}
-            disableElevation variant="contained" >
-            Details
-          </Button>
-          <Button
-            sx={{
-              px: 5,
-            }}
-            disableElevation variant="contained" color="primary">
-            Result
-          </Button>
-        </Stack>
+      <ModalContainer isOpen={openModal} onClose={closeModal} size="md">
+        <ModalContent onClose={closeModal} onPublish={handleConfirmModal} />
         <StudentSimpleDataTable
           columns={[
-            { field: "id", headerName: "Student ID", },
-            { field: "name", headerName: "Name", },
-            { field: "attachments", headerName: "Aattachments", },
+            { field: "id", headerName: "Student ID" },
+            { field: "name", headerName: "Name" },
             {
-              field: "marks", headerName: "Marks",
+              field: "attachments",
+              headerName: "Attachments",
+              render: (row) => (
+                <Paper
+                  sx={{
+                    border: "1px solid #E0E0E0",
+                  }}
+                  elevation={0}
+                >
+                  <Typography variant="subtitle2" align="center">
+                    {row.attachments}
+                  </Typography>
+                </Paper>
+              ),
+            },
+            {
+              field: "marks",
+              headerName: "Marks",
               render: (params: any) => (
                 <Stack direction={"row"} alignItems={"center"}>
                   <TextField
                     sx={{
                       borderRadius: 0,
                       width: 80,
-                      mr: 1
+                      mr: 1,
                     }}
                     value={params.value}
-
                     variant="outlined"
                     size="small"
                   />
-                  <Typography variant="subtitle2">{params.row}/50</Typography>
+                  <Typography variant="subtitle2">/50</Typography>
                 </Stack>
-              )
+              ),
             },
             {
               field: "Actions",
@@ -250,7 +238,7 @@ const ScorePage: React.FC = () => {
                     sx={{
                       backgroundColor: "#F2F2F2",
                       color: "#0D6DC5",
-                      mr: 1
+                      mr: 1,
                     }}
                     size="small"
                     disableElevation
@@ -270,9 +258,9 @@ const ScorePage: React.FC = () => {
                   </Button>
                 </Stack>
               ),
-            }
+            },
           ]}
-          rows={studnetAttendanceList}
+          rows={studentAttendanceList}
         />
       </ModalContainer>
       <ModalConfirmation
@@ -280,45 +268,10 @@ const ScorePage: React.FC = () => {
         onClose={() => setOpenConfirmModal(false)}
         isOpen={openConfimModal}
       >
-        <Box
-          p={3}
-
-        >
-          <Typography mt={2} variant="subtitle1" align="center">
-            Publish Result of <strong>"BHI Health Informatics mid semester Exam".</strong>
-            ?
-          </Typography>
-          <Typography mt={2} variant="subtitle2" align="center">
-            Result once published cannot be altered/reversed.
-          </Typography>
-          <Stack
-            alignContent={"center"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            alignSelf={"center"}
-            direction="row" spacing={2}
-            mt={5}
-          >
-            <Button
-              sx={{
-                border: "1px solid #E0E0E0",
-                color: "grey",
-                px: 5,
-              }}
-              disableElevation variant="outlined"
-            >
-              No
-            </Button>
-            <Button
-              sx={{
-                px: 5,
-              }}
-              disableElevation variant="contained" color="primary"
-            >
-              Publish
-            </Button>
-          </Stack>
-        </Box>
+        <ModalConfirmationContent
+          onClose={() => setOpenConfirmModal(false)}
+          onPublish={handlePublishResult}
+        />
       </ModalConfirmation>
     </Container>
   );

@@ -1,5 +1,3 @@
-# This workflow will do a clean installation of dependencies using yarn and build the React app across different versions of Node.js
-
 name: Academate CI
 
 on:

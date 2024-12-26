@@ -1,3 +1,5 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, and build the React app across different versions of Node.js
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: Academate CI
 
@@ -10,18 +12,18 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04 
+    runs-on: ubuntu-20.04  # Explicitly use ubuntu-20.04
 
     strategy:
       matrix:
-        node-version: [20.x, 22.x] 
+        node-version: [20.x, 22.x]  # Updated to only include Node 20.x and 22.x
 
     steps:
     - uses: actions/checkout@v4  # Checkout the repository
-    - name: Use Node.js ${{ matrix.node-version }}  
+    - name: Use Node.js ${{ matrix.node-version }}  # Set up Node.js version dynamically based on matrix
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'  
-    - run: npm ci  # Install dependencies using npm ci (clean installation)
-    - run: npm run build  # Build the React app (no need for --if-present)
+        cache: 'npm'  # Cache npm dependencies to speed up subsequent runs
+    - run: npm install  # Install dependencies using npm install (instead of npm ci)
+    - run: npm run build  # Build the React app

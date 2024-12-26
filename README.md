@@ -1,5 +1,6 @@
 # dgc-academate
-![Uploading image.png…]()
+<img width="1552" alt="image" src="https://github.com/user-attachments/assets/36de15c6-4989-413d-8d5b-a95e83f7edb0" />
+
 
 This is a frontend application for the Academate project, built using React. It provides a user interface for managing academic-related tasks and data.
 

@@ -16,11 +16,14 @@ You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the unit test & integration test.
+
+### `yarn playwright test` 
 
 ### `yarn build`
+Launches the e2e test
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ## Project Structure

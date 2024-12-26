@@ -73,11 +73,11 @@ const StudentDataGrid: React.FC<StudentDataGridProps> = ({
                         <TableRow
                             sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             key={rowIndex}>
-                            {columns.map((column) => (
-                                <TableCell key={column.field} align={column.align || "left"}>
-                                    {column.render ? column.render(row) : row[column.field]}
-                                </TableCell>
-                            ))}
+                                                        {columns.map((column) => (
+                                    <TableCell key={column.field} align={column.align || "left"}>
+                                        {column.render ? column.render(row) : row[column.field]}
+                                    </TableCell>
+                                ))}
                             {actionButtons && (
                                 <TableCell align="center">
                                     {actionButtons(row)}

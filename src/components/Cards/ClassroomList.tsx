@@ -29,7 +29,9 @@ const ClassroomList: React.FC = () => (
           <Typography variant="subtitle1">11 classrooms</Typography>
         </ListItemText>
         <ListItemAvatar>
-          <Link component="button" variant="body2">
+          <Link 
+          sx={{ color: "primary.main" }}
+          component="button" variant="body2">
             View more
           </Link>
         </ListItemAvatar>

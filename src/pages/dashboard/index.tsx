@@ -22,7 +22,6 @@ const DashboardPage: React.FC = () => (
     <Grid container spacing={2} py={2}>
       <Grid size={{ xs: 12, md: 8 }}>
         <Grid container spacing={2}>
-          {/* Larger "Generation" card */}
           <Grid size={{ xs: 12, sm: 8, md: 6 }}>
             <DashboardCard
               iconPath="/assets/dashboard/chart.svg"
@@ -31,7 +30,6 @@ const DashboardPage: React.FC = () => (
               subtitle="12th Generation"
             />
           </Grid>
-          {/* Smaller "Female students" card */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <DashboardCard
               iconPath="/assets/dashboard/female.svg"
@@ -40,7 +38,6 @@ const DashboardPage: React.FC = () => (
               subtitle="50"
             />
           </Grid>
-          {/* Smaller "Male students" card */}
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <DashboardCard
               bgcolor="#C8E4FA"

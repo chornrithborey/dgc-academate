@@ -13,7 +13,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Call, MailOutline } from "@mui/icons-material";
-import students from "../../data/student";
+import {students} from "../../data/student";
 
 const StudentDataTable: React.FC = () => (
   <TableContainer elevation={0} component={Paper}>

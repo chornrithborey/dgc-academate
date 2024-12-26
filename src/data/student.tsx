@@ -80,6 +80,68 @@ const students = [
       contact: "laura.martinez@example.com",
     },
   ];
-
   
-    export default students;
+  const studnetAttendanceList = [
+    {
+      id: 1,
+      name: "John Doe",
+      attachments: "Network.pdf",
+      marks: 45,
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      attachments: "Database.pdf",
+      marks: 50,
+    },
+    {
+      id: 3,
+      name: "Michael Johnson",
+      attachments: "Network.pdf",
+      marks: 40,
+    },
+    {
+      id: 4,
+      name: "Emily Davis",
+      attachments: "Database.pdf",
+      marks: 35,
+    },
+    {
+      id: 5,
+      name: "David Wilson",
+      attachments: "Network.pdf",
+      marks: 30,
+    },
+    {
+      id: 6,
+      name: "Sarah Brown",
+      attachments: "Database.pdf",
+      marks: 25,
+    },
+    {
+      id: 7,
+      name: "James Taylor",
+      attachments: "Network.pdf",
+      marks: 20,
+    },
+    {
+      id: 8,
+      name: "Jessica Anderson",
+      attachments: "Database.pdf",
+      marks: 15,
+    },
+    {
+      id: 9,
+      name: "Robert Thomas",
+      attachments: "Network.pdf",
+      marks: 10,
+    },
+    {
+      id: 10,
+      name: "Laura Martinez",
+      attachments: "Database.pdf",
+      marks: 5,
+    },
+  ];
+
+export { students, studnetAttendanceList };

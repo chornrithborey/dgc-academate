@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# dgc-academate
+This is a frontend application for the Academate project, built using React. It provides a user interface for managing academic-related tasks and data.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -17,31 +17,148 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project structure is as follows:
 
-### `yarn eject`
+```
+dgc/academate-frontend/
+src/
+├── __tests__/           # Test files
+├── components/          # Reusable components
+│   ├── Buttons/         # Button components
+│   ├── Cards/           # Card components
+│   ├── Modals/          # Modal components
+│   ├── Tables/          # Table components
+│   └── ...              # Other components
+├── layouts/             # Layout components
+├── pages/               # Page components
+│   ├── auth/            # Authentication pages
+│   ├── score/           # Score management pages
+│   ├── students/        # Student management pages
+│   └── ...              # Other pages
+├── utils/               # Utility functions
+├── App.tsx              # Main application component
+├── index.tsx            # Entry point
+├── theme.ts             # Theme customization
+└── ...                  # Other files
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Theme Customization
+The theme is customized using Material-UI's createTheme function. You can find the theme configuration in src/theme.ts.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+import { createTheme } from '@mui/material/styles';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+export const theme = (backgroundColor: string = '#ffffff') =>
+  createTheme({
+    palette: {
+      background: { default: backgroundColor },
+      primary: {
+        main: '#3BB2D9',
+      },
+      secondary: {
+        main: '#FF4081',
+      },
+      success: {
+        main: '#DDFFF3',
+      },
+      error: {
+        main: '#FFEFEF',
+      },
+      text: {
+        primary: '#333333',
+        secondary: '#666666',
+      },
+    },
+    typography: {
+      fontFamily: 'Lato, sans-serif',
+      h5: {
+        fontWeight: 600,
+      },
+      body1: {
+        fontSize: '1rem',
+      },
+      button: {
+        textTransform: 'none',
+      },
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: 'none',
+            borderRadius: '5px',
+          },
+          containedPrimary: {
+            color: 'white',
+            backgroundColor: '#3BB2D9',
+          },
+        },
+      },
+      MuiDrawer: {
+        styleOverrides: {
+          paper: {
+            borderRight: 'none',
+          },
+          root: {
+            backgroundColor: '#3BB2D9',
+            width: '0px',
+            borderRight: 'none',
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            borderRadius: '10px',
+          },
+        },
+      },
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            borderRadius: '0px',
+            zIndex: (theme) => theme.zIndex.drawer + 1,
+          },
+        },
+      },
+      MuiTypography: {
+        styleOverrides: {
+          root: {
+            color: '#333333',
+          },
+        },
+      },
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            borderRadius: '12px',
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            borderRadius: '12px',
+          },
+        },
+      },
+      MuiFormLabel: {
+        styleOverrides: {
+          root: {
+            textAlign: 'left',
+            marginTop: '1rem',
+          },
+        },
+      },
+    },
+  });
+  ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# dgc-academate

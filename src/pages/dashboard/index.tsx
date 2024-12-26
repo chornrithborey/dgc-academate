@@ -19,10 +19,11 @@ const DashboardPage: React.FC = () => (
       onButtonClick={handleButtonClick}
       showButton={true}
     />
-    <Grid direction={"row"} py={2} container size={12} spacing={2}>
-      <Grid size={8}>
-        <Grid direction={"row"} container spacing={2}>
-          <Grid size={6}>
+    <Grid container spacing={2} py={2}>
+      <Grid size={{ xs: 12, md: 8 }}>
+        <Grid container spacing={2}>
+          {/* Larger "Generation" card */}
+          <Grid size={{ xs: 12, sm: 8, md: 6 }}>
             <DashboardCard
               iconPath="/assets/dashboard/chart.svg"
               bgcolor="#F0F0F5"
@@ -30,7 +31,8 @@ const DashboardPage: React.FC = () => (
               subtitle="12th Generation"
             />
           </Grid>
-          <Grid size={3}>
+          {/* Smaller "Female students" card */}
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <DashboardCard
               iconPath="/assets/dashboard/female.svg"
               bgcolor="#FCF2F2"
@@ -38,7 +40,8 @@ const DashboardPage: React.FC = () => (
               subtitle="50"
             />
           </Grid>
-          <Grid size={3}>
+          {/* Smaller "Male students" card */}
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <DashboardCard
               bgcolor="#C8E4FA"
               iconPath="/assets/dashboard/male.svg"
@@ -60,13 +63,7 @@ const DashboardPage: React.FC = () => (
         </Grid>
       </Grid>
 
-      <Grid
-        sx={{
-          p: 0,
-          m: 0,
-        }}
-        size={4}
-      >
+      <Grid size={{ xs: 12, md: 4 }}>
         <EventCalendar />
         <Grid sx={{ py: 2 }}>
           <ClassroomList />

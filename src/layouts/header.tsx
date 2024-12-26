@@ -6,9 +6,13 @@ import {
   IconButton,
   Badge,
   Box,
+  Typography,
+  Stack,
+  Avatar,
 } from "@mui/material";
 import {
-  Mail as MailIcon,
+  KeyboardArrowDownOutlined as ArrowDownIcon,
+  ArrowForwardIosOutlined as ArrowForwardIcon,
   Notifications as NotificationsIcon,
   AccountCircle,
   MoreVert as MoreIcon,
@@ -49,41 +53,75 @@ const Header: React.FC<{ open: boolean }> = ({ open }) => (
     elevation={0}
     position="fixed"
   >
-    <Toolbar>
-      <Box sx={{ flexGrow: 1 }} />
-      <Box sx={{ display: { xs: "none", md: "flex" } }}>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
+    <Toolbar sx={{ 
+      p:1,
+      justifyContent: "space-between" }}>
+      <Stack>
+        <Typography 
+        variant="subtitle1" noWrap component="div" sx={{ textAlign: "left" }}>
+          Welcome Boran 
+        </Typography>
+        <Typography variant="caption" noWrap component="div" sx={{ textAlign: "left" }}>
+          <Box component="span" sx={{ color: "primary.main" }}>Lecturer</Box> <ArrowForwardIcon
+          sx={{ 
+            fontSize: "5px",
+            verticalAlign: "middle" }}
+          /> TIPLR Education Pvt. Ltd.
+        </Typography>
+      </Stack>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <IconButton size="small" aria-label="show 4 new mails" color="inherit">
+          <Avatar
+            sx={{
+              p: 0.2,
+              width: 25,
+              height: 25,
+            }}
+            alt="message icon"
+            src="../assets/header/message-icon.svg"
+          />
         </IconButton>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
+        <IconButton size="small" aria-label="show 4 new mails" color="inherit">
+          <Avatar
+            sx={{
+              p: 0.2,
+              width: 25,
+              height: 25,
+            }}
+            alt="message icon"
+            src="../assets/header/notification-icon.svg"
+          />
         </IconButton>
-        <IconButton
-          size="large"
-          edge="end"
-          aria-label="account of current user"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-      </Box>
-      <Box sx={{ display: { xs: "flex", md: "none" } }}>
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <Avatar
+              sx={{}}
+              alt="message icon"
+              src="../assets/setting/avatar.svg"
+            />
+          </IconButton>
+            <Box sx={{ textAlign: "left" }}>
+            <Typography variant="subtitle1" sx={{ lineHeight: 1 }}>
+              Boran Pol
+            </Typography>
+            <Typography variant="caption" sx={{ lineHeight: 1 }}>
+              boranpol@gmail.com
+            </Typography>
+            </Box>
+        </Stack>
         <IconButton
           size="large"
           aria-label="show more"
           aria-haspopup="true"
           color="inherit"
         >
-          <MoreIcon />
+          <ArrowDownIcon />
         </IconButton>
       </Box>
     </Toolbar>
